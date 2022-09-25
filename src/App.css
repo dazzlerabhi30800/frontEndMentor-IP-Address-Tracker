@@ -1,0 +1,16 @@
+.App {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.leaflet-container {
+    width: 100vw;
+    height: calc(100vh - 300px);
+}
+
+@media Screen and (min-width: 950px) {
+    .leaflet-container {
+        width: 100vw;
+        height: calc(100vh - 250px);
+    }
+}
