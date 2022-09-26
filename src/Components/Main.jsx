@@ -4,8 +4,10 @@ import './style.scss';
 
 const Main = ({ ip, location, timezone, isp, handleIpInput }) => {
     const [ipValue, setIpValue] = useState('');
-    const handleSubmit = () => {
+    const handleSubmit = (e) => {
+        e.preventDefault();
         handleIpInput(ipValue);
+        console.log(ipValue);
     }
     return (
         <main>

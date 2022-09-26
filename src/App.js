@@ -5,28 +5,33 @@ import { MapContainer, TileLayer, useMap, Popup, Marker } from 'react-leaflet'
 import Map from './Components/Map';
 
 function App() {
-  const [info, setInfo] = useState([])
   const [ip, setIp] = useState('');
   const [location, setLocation] = useState('');
   const [timezone, setTimezone] = useState('');
   const [isp, setIsp] = useState('');
+  const [latitude, setLatitude] = useState('');
+  const [longitude, setLongitude] = useState('');
+
+  const apiKey = process.env.REACT_APP_IP_API_KEY;
 
   const fetchLocation = async (ip) => {
-    const url = `https://geo.ipify.org/api/v2/country,city,vpn?apiKey=at_cbFrRvCQf8x7PL9FASi1jvf3LomDr&ipAddress=${ip}`;
+    const url = `https://geo.ipify.org/api/v2/country,city,vpn?apiKey=${apiKey}&ipAddress=${ip}`;
     const data = await fetch(url);
     let parsedData = await data.json();
+    console.log(parsedData);
     setIp(parsedData.ip)
     setIsp(parsedData.isp);
     setLocation(parsedData.location)
     setTimezone(parsedData.location.timezone)
+    setLatitude(parsedData.location.lat)
+    setLongitude(parsedData.location.lng)
   }
 
-  // useEffect(() => {
-  //   fetchLocation('103.49.59.243');
-  // }, [isp])
+
 
   const handleIpInput = async (input) => {
-    if (input !== "" && input !== null) {
+    const ipFormat = /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/
+    if (input !== "" && ipFormat.test(input)) {
       fetchLocation(input);
     }
     else {
@@ -37,7 +42,7 @@ function App() {
   return (
     <div className="App">
       <Main ip={ip} location={location} timezone={timezone} isp={isp} handleIpInput={handleIpInput} />
-      <Map />
+      <Map latitudeCoords={latitude} longitudeCoords={longitude} />
     </div>
   );
 }
