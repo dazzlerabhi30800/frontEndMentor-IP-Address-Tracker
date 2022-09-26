@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './style.scss';
-import { MapContainer, TileLayer, useMapEvents, useMap, Marker, Popup } from 'react-leaflet'
+import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 
 const Test = ({ pos }) => {
     const map = useMap();
-    if (pos) map.flyTo(pos, 13);
+    if (pos) map.flyTo(pos, 13, { duration: 3 });
 
     return pos ? (
         <Marker
