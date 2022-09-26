@@ -39,9 +39,6 @@ const Map = (props) => {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
                 <Test pos={position} />
-                {/* <Marker position={position}>
-                    <Popup>You are here</Popup>
-                </Marker> */}
             </MapContainer>,
         </>
     )
