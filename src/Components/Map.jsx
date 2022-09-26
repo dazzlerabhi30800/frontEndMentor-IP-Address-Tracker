@@ -29,7 +29,7 @@ const Map = (props) => {
     }
 
     return (
-        <div>
+        <>
             <MapContainer
                 center={position}
                 zoom={13}
@@ -43,7 +43,7 @@ const Map = (props) => {
                     <Popup>You are here</Popup>
                 </Marker> */}
             </MapContainer>,
-        </div>
+        </>
     )
 }
 
