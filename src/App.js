@@ -11,7 +11,8 @@ function App() {
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
 
-  const apiKey = 'at_cbFrRvCQf8x7PL9FASi1jvf3LomDr';
+  // const apiKey = 'at_cbFrRvCQf8x7PL9FASi1jvf3LomDr';
+  const apiKey = process.env.REACT_APP_IP_API_KEY;
 
   const fetchLocation = async (ip) => {
     const url = `https://geo.ipify.org/api/v2/country,city,vpn?apiKey=${apiKey}&ipAddress=${ip}`;
