@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import Main from './Components/Main';
-import { MapContainer, TileLayer, useMap, Popup, Marker } from 'react-leaflet'
 import Map from './Components/Map';
 
 function App() {
@@ -12,7 +11,7 @@ function App() {
   const [latitude, setLatitude] = useState('');
   const [longitude, setLongitude] = useState('');
 
-  const apiKey = process.env.REACT_APP_IP_API_KEY;
+  const apiKey = 'at_cbFrRvCQf8x7PL9FASi1jvf3LomDr';
 
   const fetchLocation = async (ip) => {
     const url = `https://geo.ipify.org/api/v2/country,city,vpn?apiKey=${apiKey}&ipAddress=${ip}`;
