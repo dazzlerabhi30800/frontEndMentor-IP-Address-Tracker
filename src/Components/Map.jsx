@@ -29,7 +29,7 @@ const Map = (props) => {
     }
 
     return (
-        <>
+        <footer>
             <MapContainer
                 center={position}
                 zoom={13}
@@ -40,7 +40,7 @@ const Map = (props) => {
                 />
                 <Test pos={position} />
             </MapContainer>,
-        </>
+        </footer >
     )
 }
 
