@@ -39,7 +39,7 @@ const Map = (props) => {
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
                 <Test pos={position} />
-            </MapContainer>,
+            </MapContainer>
         </footer >
     )
 }
